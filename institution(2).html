@@ -1,0 +1,367 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Find my Expert</title>
+  <style>
+    #map{
+      height:400px;
+      width:100%;
+    }
+    a{
+      text-decoration: none;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .head{
+      height: 12vh;
+      font-size: 2rem;
+      background-image: linear-gradient(90deg,white,green);
+    }
+    .text{
+      text-align: center;
+      height: 12vh;
+      align-items: center;
+      color: beige;
+      justify-content: center;
+      background-color: green;
+      margin: 12px;
+      border-radius: 23px;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <a href="index.html">Back</a>
+  </div>
+  <div class="text">
+    <h1>Find My Expert</h1>
+  </div>
+  <div id="map"></div>
+  <script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:12.9354,lng:77.5358}
+      
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      /*
+      // Add marker
+      var marker = new google.maps.Marker({
+        position:{lat:42.4668,lng:-70.9495},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content:'<h1>Lynn MA</h1>'
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+      */
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:12.9354,lng:77.5358},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>PESU MA</h1>'
+        },
+        {
+          coords:{lat:12.9364,lng:77.5308},
+          content:'<h1>pin </h1>'
+        },
+        {
+          coords:{lat:12.9232,lng:77.5308},
+          content:'<h1>pin </h1>'
+        },
+        {
+          coords:{lat:12.9334,lng:77.5358},
+          content:'<h1>pin </h1>'
+        },
+        {
+          coords:{lat:42.7762,lng:-71.0773}
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEskStNYA-Oh30Vi3klVW8Unkn8pxiFbA&callback=initMap">
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Instructor Location</title>
+  <style>
+    body{
+      height: 100vh;
+      text-align: center;
+      background-image: linear-gradient(180deg,white,green);
+    }
+
+
+    #map{
+      height:400px;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Instructor Locations</h1>
+  <div id="map"></div>
+  <script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:12.9354,lng:77.5358}
+      
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      
+      // Add marker
+      var marker = new google.maps.Marker({
+        position:{lat:42.4668,lng:-70.9495},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content:'<h1>Lynn MA</h1>'
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+    
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:12.9354,lng:77.5358},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>PESU</h1>'
+        },
+        {
+          coords:{lat:12.9364,lng:77.5308},
+          content:'<h1>Carpenter: Reality Progress </h1>'
+        },
+        {
+          coords:{lat:12.9232,lng:77.5308},
+          content:'<h1>Carpenter: Laxmi Interior </h1>'
+        },
+        {
+          coords:{lat:12.9304,lng:77.5358},
+          content:'<h1>Carpenter: Raju Carpentry  </h1>'
+        },
+        {
+          coords:{lat:12.9234,lng:77.50583},
+          content:'<h1>Electrician: Home Impro   </h1>'
+
+        },
+        {
+          coords:{lat:12.9374,lng:77.55583},
+          content:'<h1>Electrician: Sandeep Naidu   </h1>'
+
+        },
+        {
+          coords:{lat:12.9294,lng:77.55583},
+          content:'<h1>Electrician: Aashritha Construction and Solutions </h1>'
+
+        },
+        {
+          coords:{lat:12.9294,lng:77.52583},
+          content:'<h1>Pottery: Oriri Studio </h1>'
+
+        },
+        {
+          coords:{lat:12.9308,lng:77.5838},
+          content:'<h1>Pottery: Swaa Clay Studio </h1>'
+
+        },
+        {
+          coords:{lat:12.9374,lng:77.51983},
+          content:'<h1>Pottery: Songs of Summer </h1>'
+
+        },
+        {
+          coords:{lat:12.9474,lng:77.53983},
+          content:'<h1>Pottery: Matti Sona </h1>'
+
+        },
+        {
+          coords:{lat:12.9308,lng:77.5438},
+          content:'<h1>Dance: Nritarutya (Bharatnatiyam) </h1>'
+
+        },
+        {
+          coords:{lat:12.9294,lng:77.52583},
+          content:'<h1>Dance: Nritarutya (Bharatnatiyam) </h1>'
+
+        }, 
+        {
+          coords:{lat:12.9494,lng:77.52083},
+          content:'<h1>Pottery: Trayah </h1>'
+
+        },
+        {
+          coords:{lat:12.9094,lng:77.51583},
+          content:'<h1>Pottery: Artfully Yours </h1>'
+
+        },
+        {
+          coords:{lat:12.9094,lng:77.53983},
+          content:'<h1>Pottery: Mud With Love </h1>'
+
+        },
+        {
+          coords:{lat:12.9394,lng:77.49583},
+          content:'<h1>Electrician: OGS Fecility Management </h1>'
+
+        },
+        {
+          coords:{lat:12.9534,lng:77.62583},
+          content:'<h1>Electrician: Swastik Powers </h1>'
+
+        },
+        {
+          coords:{lat:12.9094,lng:77.58583},
+          content:'<h1>Carpenter: Beench Mark </h1>'
+
+        },
+        {
+          coords:{lat:12.9294,lng:77.52583},
+          content:'<h1>Carpenter: Mistri Interiors </h1>'
+
+        },
+        {   //Edit Names From Here
+          coords:{lat:12.8997,lng:77.4827},
+          content:'<h1>Plumber: Sai Plumber </h1>'
+
+        },
+        {
+          coords:{lat:12.9513,lng:77.4930},
+          content:'<h1>Plumber: Shivu Plumber </h1>'
+
+        },
+        {
+          coords:{lat:12.9244,lng:77.52003},
+          content:'<h1>Plumber: Banshankri Plumber </h1>'
+
+        },
+        {
+          coords:{lat:12.9308,lng:77.5638},
+          content:'<h1>Plumber: Jaynagar Plumber </h1>'
+
+        },
+        {
+          coords:{lat:12.9194,lng:77.4686},
+          content:'<h1>Plumber: Maruti Plumbing </h1>'
+
+        },
+        
+        
+        
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEskStNYA-Oh30Vi3klVW8Unkn8pxiFbA&callback=initMap">
+    </script>
+</body>
+</html>

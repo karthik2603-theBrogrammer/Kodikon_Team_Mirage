@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: linear-gradient(0deg,white,green);
+        }
+        .box{
+            background-color:rgb(102, 214, 102,0.7);
+            padding: 2rem;
+            font-style: oblique;
+            font-size: 1.5rem;
+            padding-top: 46px;
+            height: 25vh;
+            width: 50vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 23px;
+            padding-left: 40px;
+        }
+        #but{
+            position: relative;
+            left:140px;
+            padding: 12px;
+            background-color: green;
+            font-weight: bold;
+            border-radius: 23px;
+            cursor: pointer;
+            color: aliceblue;
+        }
+        #lab{
+            font-size: 2rem;
+            padding-bottom: 12px;
+        }
+        #terms{
+            padding-bottom: 12px;
+        }
+        #back{
+            position: relative;
+            padding-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <label id="lab">Upload 3 Certificates</label>
+        <label id="terms">(Of the same stream)</label>
+        <div class="box">
+            
+            <form id="form">
+                <label for="myfile1">Select file 1:</label>
+                <input type="file" id="myfile1" multiple><br><br>
+
+                <label for="myfile2">Select file 2:</label>
+                <input type="file" id="myfile2" multiple><br><br>
+
+                <label for="myfile3">Select file 3:</label>
+                <input type="file" id="myfile3" multiple><br><br>
+
+                <input type="submit" id="but" onclick="fun()">
+            </form>
+              
+        </div>
+        <a  id = "back" href="index.html">Back to Home Page</a>
+
+    </div>
+    <script>
+        const form = document.getElementById("form");
+        function fun(){
+            console.log("H")
+        }
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+        });
+        function fun(){
+            // alert("Submitted Certificates, You are now enrolled for the workshop")
+            window.open("confirm.html","_blank");
+            
+
+
+        }
+
+    </script>
+    
+    
+    
+</body>
+</html>

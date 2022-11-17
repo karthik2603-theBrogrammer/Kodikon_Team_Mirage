@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="stdhead">
+        <a id = 'back' href="index.html">Back</a>
+
+
+    </div>
+    <div class="text">Dear Instructor, Select Your Interest;</div>
+    <div class="parentcontainer">
+        <div class="voc" id="carpentry">
+            <img src="./pics/carpentry.jpeg" alt="-">
+            <label for="Carpentry">Carpentry</label>
+        </div>
+        <div class="voc" id="Tourism">
+            <img src="./pics/tourism.jpeg" alt="-">
+            <label for="carpentry">Tourism</label>
+        </div>
+        <div class="voc" id="Plumbing">
+            <img src="./pics/plumbing.jpeg" alt="-">
+            <label for="stiching">Plumbing</label>
+        </div>
+        <div class="voc" id="electrician"> 
+            <img src="./pics/electrician.jpeg" alt="-">
+            <label for="stiching">Electrician</label>
+        </div>
+        <div class="voc" id="cooking">
+            <img src="./pics/cooking.jpeg" alt="-">
+            <label for="stiching">Cooking</label>
+        </div>
+        <div class="voc" id="mechanic">
+            <img src="./pics/mechanic.jpeg" alt="-">
+            <label for="stiching">Mechanic</label>
+        </div>
+        <div class="voc" id="Dance">
+            <img src="./pics/bharatnatiyam.jpeg" alt="-">
+            <label for="stiching">Dance</label>
+        </div>
+        <div class="voc" id="Pottery">
+            <img src="./pics/pottery.jpeg" alt="-">
+            <label for="stiching">Pottery</label>
+        </div>
+        <div class="voc" id="theatre">
+            <img src="./pics/theatre.jpeg" alt="-">
+            <label for="stiching">Theatre</label>
+        </div>
+        
+    </div>
+    <div class="result" id = 'result'></div>
+    <script>
+    const carpentry = document.getElementById('carpentry')
+    const result = document.getElementById('result');
+    const para = document.createElement('p');
+    const elements  = document.getElementsByClassName('voc');
+    const no = document.createElement("button");
+    const yes = document.createElement("button");
+
+    myInterval = setInterval(function click(){
+        for (let i = 0; i < elements.length; i++){
+            elements[i].addEventListener('click',()=>{
+                para.innerText = "Instructor, Would you like to go with "+ elements[i].id + "?"; 
+                yes.innerHTML = 'Yes';
+                no.innerHTML = 'No';
+                clearInterval(myInterval);
+            })
+
+        }
+
+    },2)
+
+    result.appendChild(para);
+    result.appendChild(yes);
+    result.appendChild(no);
+
+
+    yes.addEventListener('click',()=>{
+        result.removeChild(para);
+        para.innerText = "Confirmed!"
+        result.appendChild(para);
+        result.removeChild(yes);
+        result.removeChild(no);
+    })
+    no.addEventListener('click',()=>{
+        result.removeChild(para);
+        result.removeChild(yes);
+        result.removeChild(no);
+
+        para.innerText = "Re-enter Your Field";
+        result.appendChild(para);
+        myInterval = setInterval(function click(){
+            for (let i = 0; i < elements.length; i++){
+                elements[i].addEventListener('click',()=>{
+                    para.innerText = "Would you like to go with "+ elements[i].id + "?";
+                    yes.innerHTML = 'Yes';
+                    no.innerHTML = 'No';
+                    result.appendChild(yes);
+                    result.appendChild(no);
+                    clearInterval(myInterval);
+                    })
+                }
+            },2)
+            
+            
+    })
+    </script>
+  </body>
+</html>
